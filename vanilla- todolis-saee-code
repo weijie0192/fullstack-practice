@@ -1,1 +1,62 @@
+// I bymistakely replaced index.html of yours with mine
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla TodoList</title>
+     <link rel = "icon" href = "https://www.designeatrepeat.com/wp-content/uploads/printable-to-do-list-680x803.png" type = "image/x-icon"> 
+       <link rel="stylesheet" href="style.css" >
 
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    
+  <input type="text" id="myInput" placeholder="Enter here!">
+  
+<button type="button" onclick="alert('Adding to list')">+</button>
+ 
+  <ul id="myTodoList">
+    <li>Have a understanding of JS concepts in depth</li>
+    <li >Read book to improve Java concepts</li>
+    <li>Try data structures and algos!!</li>
+  </ul>
+    <script src="script.js"></script>
+</body>
+</html>
+
+style.css
+h1
+{
+    color: black;
+    background-color: coral;
+}
+
+ul li
+{
+    font-size: 18px;
+    
+    padding-top: 10px;
+  list-style-type: none;
+    background: lightgrey;
+}
+
+button
+{
+    background-color: orange;
+    
+}
+
+input {
+    margin: 0;
+    border: black;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+  }
+  
+  script.js
+  //nothing as of now

@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanilla TodoList</title>
-    <script src="index.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+     <link rel = "icon" href = "https://www.designeatrepeat.com/wp-content/uploads/printable-to-do-list-680x803.png" type = "image/x-icon"> 
+       <link rel="stylesheet" href="style.css" >
+
 </head>
 
 <body>
-    <h1>My Todos</h1>
-    <br />
-    <br />
-
-    <!--A fake button decorated using style, just a css demonstration. Use <button></button> instead -->
-    <span id="add-button">Add Button</span>
-    <ul>
-        <li>Here is a hard coded sample list - Edit/Remove</li>
-        <li>Make it user interactive - Edit/Remove</li>
-        <li>Make it as user friendly/beautify as you can - Edit/Remove</li>
-        <li>Not limited to just a list, you can represent a it using card if you like - Edit/Remove</li>
-        <li>javascript html dom intro: https://www.w3schools.com/js/js_htmldom.asp - Edit/Remove</li>
-    </ul>
+    <h1>To-Do List</h1>
+    
+  <input type="text" id="myInput" placeholder="Enter here!">
+  
+<button type="button" onclick="alert('Adding to list')">+</button>
+ 
+  <ul id="myTodoList">
+    <li>Have a understanding of JS concepts in depth</li>
+    <li >Read book to improve Java concepts</li>
+    <li>Try data structures and algos!!</li>
+  </ul>
+    <script src="script.js"></script>
 </body>
-
 </html>

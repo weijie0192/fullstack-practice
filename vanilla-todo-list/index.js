@@ -4,6 +4,6 @@ window.onload = function () {
     addButton.onclick = function () {
         //alert("You click add");
         var textList = document.getElementById("input-text").value;
-        document.getElementById("demo").innerHTML += textList +"<br>" ;
+        document.getElementById("list-demo").innerHTML += textList +"<br>" ;
     };
 };

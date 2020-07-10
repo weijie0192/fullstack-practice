@@ -1,5 +1,52 @@
-#add-button {
-    border: 1px solid black;
-    padding: 5px;
+.button {
+    border: 1px solid white;
+    padding: 6px;
     cursor: pointer;
+    background-color: lightgray;
+    color: black;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.button:hover {
+    background-color: darkgrey;
+    border: 1px solid white;
+}
+
+#add-button{
+    border: 1px solid white;
+    padding: 6px;
+    cursor: pointer;
+    background-color: darkturquoise;
+    color: black;
+    border-radius: 8px;
+    font-size: 12px;   
+    text-align: center;
+}
+
+#add-button:hover {
+    background-color: lightcyan;
+    border: 1px solid white;
+}
+
+h1{
+    color: darkcyan;
+    text-align: center;
+}
+
+div{
+    text-align: center;
+}
+
+body{
+    background-color:lightblue;
+}
+
+p{
+       background: #f9f9f9;
+       }
+   
+input
+{
+       width: 35%;
 }

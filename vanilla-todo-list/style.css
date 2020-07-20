@@ -1,3 +1,103 @@
+/* For removing basic styling of the browser */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(120deg,#d16c7d, #c495eb,#e64862);
+   color:white;
+   font-family: "Poppins",sans-serif;
+   min-height:100vh;
+   /* 
+   //good one: 
+    background-image: linear-gradient(120deg,#dfdb1a, #eeb20d,#f87118);
+   
+    background: linear-gradient(#e66465, #9198e5);
+    background: linear-gradient(#dfdb1a, #eeb20d);*/
+}
+
+header{
+    font-size: 32 px;
+}
+
+header, form{
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form  input, form button{
+    padding: 8px;
+    font-size: 32 px;
+    border: black;
+    background: white;
+    
+
+}
+
+form button{
+    color:#d16c7d ;
+    background: white;
+    cursor: pointer;
+}
+
+form button:hover{
+    background: #d16c7d;
+    color: white;
+}
+
+.todo-container{
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
+}
+
+.todo-list{
+    min-width: 30%;
+    list-style: none;
+}
+.todo{
+margin: 8px;
+background: white;
+color: black;
+font-size: 24px;
+display: flex;
+align-items: center;
+}
+
+.todo li{
+    flex:1;
+/*push all buttons in the end next to each other*/
+}
+
+.trash-btn, .complete-btn{
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 8px;
+    padding: 8px;
+}
+
+.complete-btn{
+    background: lightgreen;
+}
+
+/* for making the trash icon work.....it doesn;t work without below code*/
+
+.fa-trash, .fa-check{
+    pointer-events: none;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+/*
 .button {
     border: 1px solid white;
     padding: 6px;
@@ -50,3 +150,4 @@ input
 {
        width: 35%;
 }
+*/

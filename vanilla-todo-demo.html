@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        .floatRight {
+            float: right;
+        }
+
+        .info {
+            margin-bottom: 10px;
+        }
+
+        .completeLabel,
+        a {
+            margin-right: 5px
+        }
+
+        .children {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="newTodo">Add New Todo</button>
+    <br />
+    <ul id="container">
+    </ul>
+</body>
+
+<script>
+    var todoContainer = document.getElementById("container");
+
+    document.getElementById("newTodo").onclick = function () {
+        var userText = prompt("New Todo: ");
+        if (userText !== null) {
+            todoContainer.appendChild(onCreate(userText, "Todo"));
+        }
+    }
+
+    function onCreate(label, name, updateComplete) {
+        var container = createEl("li");
+        var infoContainer = createEl("div", "info");
+
+        if (updateComplete) {
+            infoContainer.appendChild(createCompleteCheckbox(container, updateComplete));
+        }
+        var childrenContainer = null;
+        if (name === "Todo") {
+            childrenContainer = createEl("ul", "children");
+        }
+        var labelContainer = createEl("span", false, label);
+        infoContainer.appendChild(labelContainer);
+        infoContainer.appendChild(createActions(container, labelContainer, childrenContainer, updateComplete));
+        container.appendChild(infoContainer);
+        if (childrenContainer) {
+            container.appendChild(childrenContainer);
+        };
+        return container;
+    }
+
+    function createActions(container, labelContainer, childrenContainer, updateComplete) {
+        var actions = createEl("div", "floatRight");
+        if (childrenContainer) {
+            var completeLabel = createEl("span", "completeLabel", "Completed: 0/0");
+            updateComplete = function () {
+                var total = childrenContainer.childNodes.length;
+                var completed = 0;
+                for (var i = 0; i < total; i++) {
+                    console.log(childrenContainer.childNodes[i].className)
+                    if (childrenContainer.childNodes[i].className === "complete") {
+                        completed++;
+                    }
+                }
+                completeLabel.innerHTML = "Completed : " + completed + "/" + total;
+            }
+            actions.appendChild(completeLabel);
+            actions.appendChild(createBtn("Add", function () {
+                var userText = prompt("New " + name + ": ");
+                if (userText !== null) {
+                    childrenContainer.appendChild(onCreate(userText, "Task", updateComplete));
+                    if (updateComplete)
+                        updateComplete();
+                }
+            }));
+        }
+
+        actions.appendChild(createBtn("Edit", function () {
+            var userText = prompt("current: " + labelContainer.innerHTML);
+            if (userText !== null) {
+                labelContainer.innerHTML = userText;
+            }
+        }));
+
+        actions.appendChild(createBtn("Delete", function () {
+            container.parentNode.removeChild(container);
+            if (updateComplete)
+                updateComplete();
+        }));
+
+        return actions;
+    }
+
+    function createCompleteCheckbox(container, updateComplete) {
+        var checkbox = createEl("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.onchange = function () {
+            container.setAttribute("class", container.className === "complete" ? "" : "complete");
+            updateComplete();
+        };
+        return checkbox;
+    }
+
+    function createBtn(label, onClick) {
+        var btn = createEl("button", false, label)
+        btn.onclick = onClick;
+        return btn;
+    }
+
+    function createEl(tag, className, inner) {
+        var el = document.createElement(tag);
+        if (className)
+            el.setAttribute("class", className);
+        if (inner)
+            el.innerHTML = inner;
+        return el;
+    }
+
+</script>
+
+</html>
